@@ -306,16 +306,354 @@ const MUNICIPALITY_CRE_MAP = {
 const CRE_NAMES = Array.from(new Set(Object.values(MUNICIPALITY_CRE_MAP))).sort((a, b) =>
   a.localeCompare(b, 'pt-BR')
 );
+const CRE_METRICS_CSV = {
+  "ARARANGUA": {
+    "publicoEE": 100,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "BLUMENAU": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "BRACODONORTE": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "BRUSQUE": {
+    "publicoEE": 100,
+    "escolas": 103,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "CAMPOSNOVOS": {
+    "publicoEE": 0,
+    "escolas": 3521,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "CANOINHAS": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 3523,
+    "presencial": 0,
+    "online": 5669
+  },
+  "CACADOR": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "CHAPECO": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 55,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "CONCORDIA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 5,
+    "presencial": 0,
+    "online": 0
+  },
+  "CRICIUMA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 5162,
+    "online": 0
+  },
+  "CURITIBANOS": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 555,
+    "presencial": 0,
+    "online": 0
+  },
+  "DIONISIOCERQUEIRA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "FLORIANOPOLIS": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 5,
+    "presencial": 0,
+    "online": 0
+  },
+  "IBIRAMA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 615,
+    "participantes": 0,
+    "presencial": 5165,
+    "online": 0
+  },
+  "ITAJAI": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "ITAPIRANGA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 516,
+    "estudantesAEE": 0,
+    "participantes": 213,
+    "presencial": 0,
+    "online": 0
+  },
+  "ITUPORANGA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 516,
+    "online": 0
+  },
+  "JARAGUADOSUL": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "JOACABA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 516,
+    "estudantesAEE": 0,
+    "participantes": 2659,
+    "presencial": 0,
+    "online": 0
+  },
+  "JOINVILLE": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "LAGES": {
+    "publicoEE": 2625,
+    "escolas": 59,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 361,
+    "online": 0
+  },
+  "LAGUNA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 26,
+    "estudantesAEE": 0,
+    "participantes": 262,
+    "presencial": 0,
+    "online": 0
+  },
+  "MAFRA": {
+    "publicoEE": 315,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "MARAVILHA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "PALMITOS": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "QUILOMBO": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "RIODOSUL": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "SEARA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "SAOJOAQUIM": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "SAOLOURENCODOESTE": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "SAOMIGUELDOESTE": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "TAIO": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "TIMBO": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "TUBARAO": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "VIDEIRA": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  },
+  "XANXERE": {
+    "publicoEE": 0,
+    "escolas": 0,
+    "escolasAEE": 0,
+    "estudantesAEE": 0,
+    "participantes": 0,
+    "presencial": 0,
+    "online": 0
+  }
+};
+
+function normalizeCreKey(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toUpperCase()
+    .replace(/[^A-Z0-9]+/g, '');
+}
+
 
 function generateDefaultCreData(names = CRE_NAMES) {
   return names.map((name, index) => {
-    const publicoEE = 400 + index * 15;
-    const escolas = 45 + (index % 6) * 3;
-    const escolasAEE = Math.max(10, escolas - 8 - (index % 4));
-    const estudantesAEE = Math.round(publicoEE * 0.58) + (index % 10) * 6;
-    const participantes = 120 + (index * 7) % 90;
-    const presencial = 20 + (index % 5) * 5;
-    const online = 15 + (index % 7) * 4;
+    const key = normalizeCreKey(name);
+    const metrics = CRE_METRICS_CSV[key] || {};
+    const publicoEE = Number(metrics.publicoEE ?? 0);
+    const escolas = Number(metrics.escolas ?? 0);
+    const escolasAEE = Number(metrics.escolasAEE ?? 0);
+    const estudantesAEE = Number(metrics.estudantesAEE ?? 0);
+    const participantes = Number(metrics.participantes ?? 0);
+    const presencial = Number(metrics.presencial ?? 0);
+    const online = Number(metrics.online ?? 0);
+
     return {
       code: `CRE${String(index + 1).padStart(2, '0')}`,
       name: `CRE ${name}`,
@@ -328,7 +666,8 @@ function generateDefaultCreData(names = CRE_NAMES) {
       participantes,
       presencial,
       online,
-      hasAssessoria: index % 9 !== 0 // some CREs start without assessorias
+      // Considera que "teve assessoria" quando houve pelo menos 1 ação presencial ou online
+      hasAssessoria: (presencial + online) > 0
     };
   });
 }
