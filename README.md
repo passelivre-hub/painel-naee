@@ -1,1 +1,0 @@
-painel naee# painel-naee
